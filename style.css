@@ -76,8 +76,7 @@ footer {
 
 .container {
   max-width: 740px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-left: 340px;
 }
 
 /*.exercise {
@@ -90,10 +89,18 @@ footer {
   text-align: left;
 }
 
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
 .index {
+  display: flex;
+  margin: auto;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: rgba(128, 128, 128, .9);
+  background-color: rgba(128, 128, 128, .7);
   font-size: 1em;
   line-height: 1.5em;
   font-family: 'Crimson Text', serif;
@@ -110,6 +117,7 @@ footer {
 }
 
 .index a, .index h2 {
+  width: 200px;
   color: rgb(255, 255, 255);
 }
 
@@ -125,4 +133,20 @@ footer {
 
 .index ul > li {
   list-style-type: none;
+}
+
+input.btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Crimson Text', serif;
+  font-size: 1em;
+  width: 100px;
+  border-bottom-style: outset;
+  border-left-style: outset;
+}
+
+input.btn:hover {
+  background-color: rgba(255, 255, 0, .5);
 }
