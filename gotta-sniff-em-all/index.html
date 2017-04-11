@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="../style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:300,400|VT323" rel="stylesheet">
+<title>👃</title>
+</head>
+<body>
+<section class="index flex-container">
+  <h2>workshop contents</h2>
+  <ul>
+    <li><a href="#goals" class="active">goals</a></li>
+    <li><a href="#first">how do <i>you</i> think the internet works?</a></li>
+    <li><a href="#second">exercise: build the internet</a></li>
+    <li><a href="#third">the big picture</a></li>
+    <li><a href="#fourth">the tiny picture</a></li>
+    <li><a href="#fifth"></a></li>
+    <li><a href="#sixth"><span class="exercise">exercise:</span></a></li>
+  </ul>
+  <div id="slides">
+    <input type="button" class="btn" onclick="window.open('slides/index.html', '_blank')" value="view as slides"></input>
+    <input type="button" class="btn" onclick="window.open('slides/index.html?print-pdf', '_blank')" value="print to pdf"></input>
+  </div>
+</section>
+
+<div id="goals" class="container content">
+  <section>
+    <h1>packets: gotta sniff 'em all</h1>
+  </section>
+  <section>
+      <p><strong>#goals: </strong>we’ll use an application called herbivore to explore how our devices get websites from out of the internet into our eyeballs. before we begin, we'll talk as a group about how we think the internet works, where we got those ideas, and some ways of framing conversations about the internet.</p>
+      <p><strong>duration: </strong>1.5 hours</p>
+      <p><strong>prerequisites: </strong>you should have herbivore on your computer before beginning the workshop. herbivore is a free, open-source application available for download <a href="">here.</a></p>
+      <p><strong>materials needed: </strong>wi-fi; one laptop per two people; optional: tactical tech's <a href="https://myshadow.org/ckeditor_assets/attachments/146/howtheinternetworks_cardset.pdf">deck</a> of internet infrastructure cards .</p>
+  </section>
+</div>
+
+<div id="first" class="container content">
+  <section>
+    <h2>how do <i>you</i> think the internet works?</h2>
+  </section>
+  <section>
+    <p>there are many ways to talk about how the internet works:
+    <ul>
+    <li>it’s physical: there are server farms, carrier hotels, specially marked manhole covers on the street, and lots and lots of cable.</li>
+    <li>it tracks you: there are advertisers who want your data so they can categorize you a thousand different ways, and there are tools for evading the advertisers.</li>
+    <li>different things happen at different scales: there’s a big picture (infrastructure, international governance bodies) and a tiny picture (bytes traveling along wires).</p>
+  </section>
+</div>
+
+<div id="second" class="container content">
+  <section>
+    <h2>exercise: lay out the internet</h2>
+  </section>
+  <section>
+    <ol>
+      <li>break out into groups of four. each group gets a deck of the tactical tech internet infrastructure cards.</li>
+      <li>groups spend 10 minutes laying out the cards according to their understanding of a website gets from server to computer.</li>
+      <li>come back together and discuss: how did this feel? did you know more or less than you thought?</li>
+    </ol>
+  </section>
+</div>
+
+<div id="third" class="container content">
+  <section>
+    <h2>the big picture</h2>
+  </section>
+  <section>
+    <p>one of the mind-blowing, big picture things about the internet: the submarine cable map.</p>
+    <figure>
+      <img src="assets/sub-cable-map.png" width="600px" border="1px">
+      <figcaption>Source: <a href="http://www.submarinecablemap.com/">http://www.submarinecablemap.com/</a></figcaption>
+    </figure>
+  </section>
+  <section>
+    <blockquote>“Most people probably don’t know that 99 percent of all transoceanic data traffic goes through undersea cables, and that includes Internet usage, phone calls and text messages.”
+    <cite>—NYU professor Nicole Starosielski in <a href="http://www.newsweek.com/undersea-cables-transport-99-percent-international-communications-319072">Newsweek</a>, 2015</cite>
+    </blockquote>
+  </section>
+</div>
+
+<div id="fourth" class="container content">
+  <section>
+    <h2>the tiny picture</h2>
+  </section>
+  <section>
+    <p>for the sake of working with what we’ve got—our computers, some free tools—we’re going to mostly stick with the tiny picture (bytes traveling along wires).</p>
+    <p>you should have herbivore installed on your computer. open it up!</p>
+  </section>
+  <marquee><p>😱😱😱 what is all this stuff? 😱😱😱</p></marquee>
+  <section>
+    <figure>
+      <img src="assets/network.png" width="600px" border="1px">
+      <figcaption></figcaption>
+    </figure>
+  </section>
+  <section>
+    <p>you're looking at the network view. it has two main parts: 
+      <ol>
+      <li>a visualization</li>
+      <li>a table</li>
+      </ol>
+    </p>
+    <p>the visualization shows all the devices that access the internet via the router—that device at the top. the table has more information about each device.</p>
+    <p>the number under each device icon is its <span class="tooltip">private IP address<span class="tooltiptext">private IP addresses are dynamically assigned by the router each time a device connects to it.</span></span>. IP addresses are always structured as four sets of three numbers, separated by periods.</p> <p>the private IP addresses in the visualization correspond to numbers in the IP column in the table underneath the visualization. each device has its own row in the table.</p>
+    <p>it's easy to find the <span class="tooltip">MAC address<span class="tooltiptext">MAC addresses are "media access control" addresses, unique identifiers assigned by manufacturers of networking devices and etched right onto the device itself. the MAC address follows a strict naming format which is set by the IEEE, so that networked devices can communicate with each other.</span></span> of your device (there's an arrow pointing to it).</p>
+  </section>
+  <section>
+    <p>the most important thing to remember about all these identifiers is that they're addresses, ways of getting information from one device to another. think about it: if you need to give something to someone you've never met before, you need some uniquely identifying information about them. the paper that defines how this all works actually describes it this way:</p>
+  </section>
+  <section>
+    <blockquote>“A distinction is made between names, addresses, and routes... A name indicates what we seek. An address indicates where it is. A route indicates how to get there. The internet protocol deals primarily with addresses.”
+    <cite>—<a href="https://tools.ietf.org/html/rfc791">Internet Protocol Specification</a>, 1981</cite>
+    </blockquote>
+  </section>
+  <section>
+    <p>if you double-click your own device in the table, you get to the sniffer view, where you're watching your own packets come and go.</p>
+    <figure>
+      <img src="assets/sniffer.png" width="600px" border="1px">
+      <figcaption></figcaption>
+    </figure>
+  </section>
+  <section>
+    <figure>
+      <img src="assets/http-form.png" width="600px">
+      <figcaption></figcaption>
+    </figure>
+  </section>
+  <section>
+    <figure>
+      <img src="assets/https-form.png" width="600px">
+      <figcaption></figcaption>
+    </figure>
+  </section>
+</div>
+
+<!-- table
+<table class="no-border">  
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+</table> -->
+
+<!-- figure
+<figure>
+  <img src="" width="600px">
+  <figcaption>Source: <a href=""></a></figcaption>
+</figure> -->
+
+<!-- quote
+ <blockquote>
+ <cite>— in<a href=""></a></cite>
+ </blockquote> -->
+
+<footer class="footer">
+    <div>made by jen kagan</div>
+    <div>2017</div>
+</footer>
+<script src="../scroll.js" type="text/javascript"></script>
+</body>
+</html>

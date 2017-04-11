@@ -46,6 +46,11 @@ a:hover, a:hover > h2 {
   background-color: rgb(255,0,255);
 }
 
+blockquote {
+  font-size: 2em;
+  line-height: 1.1em;
+}
+
 footer {
   background-color: rgb(128, 128, 128);
   color: white;
@@ -149,4 +154,44 @@ input.btn {
 
 input.btn:hover {
   background-color: rgba(255, 255, 0, .5);
+}
+
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_tooltip*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #555;
+    color: #fff;
+    width: 300px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -160px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
