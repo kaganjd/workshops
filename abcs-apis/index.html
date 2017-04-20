@@ -11,9 +11,9 @@
   <h2>workshop contents</h2>
   <ul>
     <li><a href="#goals" class="active">goals</a></li>
-    <li><a href="#first"></a></li>
-    <li><a href="#second"></a></li>
-    <li><a href="#third"></a></li>
+    <li><a href="#first">requests and responses</a></li>
+    <li><a href="#second">the propublica congress API</a></li>
+    <li><a href="#third">the dronestream API</a></li>
     <li><a href="#fourth"></a></li>
     <li><a href="#fifth"></a></li>
     <li><a href="#sixth"><span class="exercise">exercise:</span></a></li>
@@ -30,26 +30,123 @@
   </section>
   <section>
       <p><strong>#goals: </strong>
-      <p><strong>duration: </strong>1.5 hours</p>
-      <p><strong>prerequisites: </strong>none</p>
+      <p><strong>duration: </strong>2.5 hours</p>
+      <p><strong>prerequisites: </strong>"data: spreadsheets to JSON workshop" or an understanding of what JSON is; </p>
       <p><strong>materials needed: </strong></p>
   </section>
 </div>
 
 <div id="first" class="container content">
   <section>
-    <h2></h2>
+    <h2>requests and responses (or: how computers talk to each other)</h2>
   </section>
   <section>
+  <p>a very simplified version of how a website gets to your phone or computer:
+  <ul>
+    <li>first, the client (your phone or computer) makes a request to a server (a computer somewhere else that has the website you want).</li>
+    <li>then, the server serves a response back.</li>
+  </ul>
+  </p>
+  <p>to summarize, clients make requests; servers serve responses.</p>
+  </section>
+  <section>
+    <p>responses and requests both include addresses so they know where to go. when you type an address into a browser search bar, you’re typing the address of the file you want on the server where it's stored.</p>
+  </section>
+  <section>
+    <p>the response the server sends back can be a website, an image, a video. in this workshop we’ll be talking about responses that are JSON data.</p>
+    <p id="apis">APIs use different addresses to serve different parts of a data set.</p>
   </section>
 </div>
 
 <div id="second" class="container content">
   <section>
-    <h2>spreadsheets and cells</h2>
+    <h2>a close reading: the propublica congress API</h2>
   </section>
   <section>
+    <p>let's take a close look at an API. the <a href="https://propublica.github.io/congress-api-docs/#congress-api-documentation">propublica congress API</a> is well-documented and not evil, so we’ll use it to build as much knowledge as we can, from scratch, about APIs.</p>
   </section>
+  <section>
+    <h3>what does the documentation say?</h3>
+    <p>information about what an API does is referred to as its <strong>documentation</strong>. it’s the best place to get your bearings when you’re exploring a new API. this one says:
+    <blockquote>"Using the Congress API, you can retrieve legislative data from the House of Representatives, the Senate and the Library of Congress. The API, which originated at The New York Times in 2009, includes details about members, votes, bills, nominations and other aspects of congressional activity. This document describes the requests that users can make of the API and the responses that it returns."</blockquote>
+    </p>
+  </section>
+  <section>
+    <p>from the description, we learn some things about APIs in general:
+    <ul>
+      <li>they let you retrieve data</li>
+      <li>they come with documentation</li>
+      <li>users make requests to the API and then the API sends back responses</li>
+    </ul>
+    </p>
+  </section>
+  <section>
+    <p>with this API in particular, we'd make requests to get information about:
+    <ul>
+      <li>members of congress</li>
+      <li>votes</li>
+      <li>bills</li>
+      <li>nominations</li>
+    </ul>
+    </p>
+  </section>
+  <section>
+    <h3>building a query, making a request</h3>
+    <p>the propublica congress API provides access to many data sets. we'll focus on the <strong>members</strong> API to keep things simple. the members API has information about how to build the address to access the data we need.</p>
+    <p><img src="assets/members.png" width="600px"></p>
+  </section>
+  <section>
+    <p>URI stands for "universal resource identifier" and it's another name for the data set's address on propublica's server.</p>
+    <p><img src="assets/req.png" width="600px"></p>
+    <p>looks like a regular web address, right? the only differences are:
+    <ol>
+    <li>the propublica API requires a key, so you won't be able to access the data by just typing the address above into a regular browser; you'll get a message saying "forbidden". we'll talk more about keys later, but for now just think of it as a password.</li>
+    <li>those curly brackets, which tell you that there can be multiple possible values there. you have to decide which values you want to put in; putting in different values will return different data. this is what i meant when i said above, <a href="#apis">“APIs use different addresses to serve different parts of a data set.”</a></li>
+    </ol>
+    </p>
+  </section>
+  <section>
+    <p>for example, these three links will return different data sets because they’re (slightly) different addresses:
+    <ul>
+      <li><code>https://api.propublica.org/congress/v1/115/senate/members.json</code></li>
+      <li><code>https://api.propublica.org/congress/v1/114/senate/members.json</code></li>
+      <li><code>https://api.propublica.org/congress/v1/114/house/members.json</code></li>
+    </ul>
+    </p>
+  </section>
+  <section>
+    <p>see the differences? the places where you have to decide the values are called <strong>parameters</strong>. programmers plug the query parameters into the address to get the response (or, data set) they need.</p>
+    <p><img src="assets/query.png" width="400px"></p>
+  </section>
+  <section>
+    <p>once you build your request address and enter it in the command line, 
+    <p><img src="assets/propub-cl.png" width="600px"></p>
+    <p>the response looks like this:</p>
+    <p><img src="assets/propub-json.png" width="600px"></p>
+  </section>
+</div>
+
+<div id="third" class="container content">
+  <section>
+    <h2>a close reading: the dronestream API</h2>
+  </section>
+  <section>
+    <p>let's look at another API: a covert drone strike API created by data artist josh begley.</p>
+    <p>
+      <img src="assets/dronestream.png" width="600px">
+    </p>
+  </section>
+  <section>
+    <h3>what does the documentation say?</h3>
+    <p>there is no documentation! sometimes, this happens with APIs.</p>
+    <h3>making a request</h3>
+    <p>unlike the propublica congress API which has lots of different endpoints (addresses), the dronestream API just has one endpoint. this means you don’t have to deal with any parameters to build the address to get the data set you want; there's only one data set. the dronestream API also doesn’t require a key, so anyone can access it straight from the browser. give it a try:</p>
+    <p><a target="_blank" href="http://api.dronestre.am/data">http://api.dronestre.am/data</a></p>
+  </section>
+  <section>
+    <p>this endpoint—or address—returns raw JSON data, just like the propublica congress API. begley created this data set by going through articles from the bureau of investigative journalism and making a JSON object for each covert drone strike launched by the u.s. before begley made the dronestream API, this data set existed in articles, but not in a format that could be accessed and used in an application or data visualization.</p>
+  </section>
+  
 </div>
 
 <!-- table

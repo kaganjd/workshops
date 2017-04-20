@@ -1,0 +1,19 @@
+.worksheet {
+  margin-left: 10%;
+}
+
+.img-block {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cookieimg > img {
+  width: 300px;
+  padding: 20px;
+}
+
+.cookieimg > img:hover {
+  background-color: rgba(0, 255, 255, .4);
+  border-radius: 20px;
+  padding: 20px;
+}
