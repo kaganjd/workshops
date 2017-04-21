@@ -1,0 +1,51 @@
+body {
+  background-image:url(main-assets/machine2-wide.jpg);
+  background-size: cover;
+}
+
+.container {
+  max-width: 690px;
+  margin-left: 25%;
+  margin-bottom: 170px;
+}
+
+.project-descr {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, .4);
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 3px;
+}
+
+.square {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.workshop-descr {
+  max-width: 300px;
+  max-height: 300px;
+  color: rgba(255, 255, 255, .9);
+  background-color: rgba(127, 0, 255, 1);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.workshop-descr > h1 > a {
+  color: rgba(255, 255, 255, .9);
+}
+
+.workshop-descr:hover {
+  color: rgba(255, 255, 255, .9);
+  background-color: rgba(127, 0, 255, .9);
+  text-decoration: none;
+}
+
+rgb(212, 201, 185)
