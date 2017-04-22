@@ -1,30 +1,41 @@
 body {
-  background-image:url(main-assets/machine2-wide.jpg);
+  background-image:url(assets/machine2-wide.jpg);
   background-size: cover;
 }
 
 .container {
   max-width: 690px;
   margin-left: 25%;
-  margin-bottom: 170px;
-}
-
-.project-descr {
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(0, 0, 0, .4);
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 3px;
+  margin-bottom: 80px;
 }
 
 .square {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+.main-descr {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, .4);
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 3px;
+  text-align: right;
+}
+
+.main-descr a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.main-descr a:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, .4);
+  text-decoration: none;
 }
 
 .workshop-descr {
@@ -36,10 +47,15 @@ body {
   padding-right: 20px;
   margin-bottom: 10px;
   border-radius: 3px;
+  text-align: center;
 }
 
 .workshop-descr > h1 > a {
   color: rgba(255, 255, 255, .9);
+}
+
+.workshop-descr p {
+  text-align: left;
 }
 
 .workshop-descr:hover {
@@ -47,5 +63,3 @@ body {
   background-color: rgba(127, 0, 255, .9);
   text-decoration: none;
 }
-
-rgb(212, 201, 185)
