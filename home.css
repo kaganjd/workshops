@@ -23,35 +23,37 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
-  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   text-align: right;
 }
 
 .main-descr a {
-  color: rgba(255, 255, 255, 1);
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, .4);
 }
 
 .main-descr a:hover {
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(0, 0, 0, .4);
+  color: black;
+  background-color: rgb(0, 255, 216);
   text-decoration: none;
 }
 
 .workshop-descr {
   max-width: 300px;
   max-height: 300px;
-  color: rgba(255, 255, 255, .9);
-  background-color: rgba(127, 0, 255, 1);
+  color: rgb(255, 255, 255);
+  background-color: rgb(98, 0, 234);
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 10px;
   border-radius: 3px;
   text-align: center;
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.4);
 }
 
 .workshop-descr > h1 > a {
-  color: rgba(255, 255, 255, .9);
+  color: rgb(255, 255, 255);
 }
 
 .workshop-descr p {
@@ -59,7 +61,8 @@ body {
 }
 
 .workshop-descr:hover {
-  color: rgba(255, 255, 255, .9);
-  background-color: rgba(127, 0, 255, .9);
+  color: rgb(255, 255, 255);
+  background-color: rgba(98, 0, 234, .9);
   text-decoration: none;
+  box-shadow: none;
 }
