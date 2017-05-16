@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <title>slides: data 1: spreadsheets to JSON</title>
+  <link href="../../reveal.js/css/reveal.css" rel="stylesheet">
+  <link href="../../reveal.js/css/theme/white.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:300,400|VT323" rel="stylesheet"><!-- Theme used for syntax highlighting of code -->
+  <link href="../../reveal.js/lib/css/zenburn.css" rel="stylesheet"><!-- Printing and PDF exports -->
+
+  <script>
+       var link = document.createElement( 'link' );
+       link.rel = 'stylesheet';
+       link.type = 'text/css';
+       link.href = window.location.search.match( /print-pdf/gi ) ? '../../reveal.js/css/print/pdf.css' : '../../reveal.js/css/print/paper.css';
+       document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>datos para la web</h1>
+      </section>
+      <section class="index">
+        <h2>contenidos del taller</h2>
+        <ul>
+          <li>objetivos</li>
+          <li>la lista indexada</li>
+          <li>hojas de cálculo y celdas</li>
+          <li><span class="exercise">ejercicio:</span> construye un conjunto simple de datos</li>
+          <li>formatos de datos</li>
+          <li>proyectos basados en hojas de cálculo</li>
+          <li><span class="exercise">ejercicio:</span> imagina un conjunto de datos o interfaz</li>
+        </ul>
+      </section>
+      <section>
+        <p><strong>#objetivos:</strong> lograrás un mejor entendimiento de lo que es posible hacer con "tan solo" una hoja de cálculos. en este taller, aprenderemos sobre hojas de cálculo y una forma similar de ordenar información, llamada JSON. a continuación, revisaremos algunos proyectos que usan hojas de cálculo y JSON. construirás tu propio conjunto de datos - o idearás la recolección de datos para un conjunto de datos especulativo - y esbozarás una interfaz con la que pueda interactuar.</p>
+      </section>
+      <section>
+        <p><strong>duración:</strong> 1.5 horas</p>
+        <p><strong>prerrequisitos:</strong> ninguno</p>
+        <p><strong>materiales necesarios:</strong> conexión a internet, programa para usar hojas de datos como google spreadsheets</p>
+        <p></p>
+      </section>
+      <section>
+        <h2>la lista indexada</h2>
+      </section>
+      <section>
+        <p>una lista indexada es una forma de organizar información donde una fila de la lista comparte la misma estructura de "índice" seguida de "item", así:</p>
+        <figure>
+          <table class="no-border">
+            <tr>
+              <td>4 —</td>
+              <td>orden ejecutivo</td>
+            </tr>
+            <tr>
+              <td>7 —</td>
+              <td>distritos</td>
+            </tr>
+            <tr>
+              <td>2 —</td>
+              <td>Stephen</td>
+            </tr>
+          </table>
+        </figure>
+        <p>en el ejemplo anterior el "índice" es un número, pero no siempre tiene que serlo.</p>
+        <p></p>
+      </section>
+      <section>
+        <p>esta forma de organizar información es muy antigua. aquí hay un extracto de una lista indexada de 1693:</p>
+        <figure>
+          <img src="../assets/1693-detail.jpg" width="600px">
+          <figcaption>
+            Fuente: <a href="https://digitalcollections.nypl.org/items/bd926ab2-b94f-48a8-e040-e00a180644a9">https://digitalcollections.nypl.org/items/bd926ab2-b94f-48a8-e040-e00a180644a9</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <figure>
+          <table class="no-border">
+            <tr>
+              <td>1 —</td>
+              <td>old fashion dish cupboard (?)</td>
+            </tr>
+            <tr>
+              <td>1 —</td>
+              <td>old bad boulder... (?)</td>
+            </tr>
+            <tr>
+              <td>3 —</td>
+              <td>iron pots (?)</td>
+            </tr>
+            <tr>
+              <td>1 —</td>
+              <td>for rand iron &amp; tang (?)</td>
+            </tr>
+          </table>
+        </figure>
+        <p></p>
+      </section>
+      <section>
+        <p>podemos leer horizontalmente una lista indexada. no obstante, la lista indexada también sugiere otra forma de leerla: verticalmente, por columna.</p>
+      </section>
+      <section>
+        <p>la hoja de cálculo es un tipo complejo de lista indexada, donde las columnas están nombradas de forma explícitas, donde las columnas están explícitamente nombradas y usadas para conectar más de una pieza de información a un mismo índice. esta forma de organizar información también es muy antigua. aquí tenemos una hoja de cálculo de 1662 que fue escrita CON. UNA. PLUMA.</p>
+      </section>
+      <section>
+        <figure>
+          <img src="../assets/1662-quill.jpg">
+          <figcaption>
+            FUENTE: <a href="http://www.pieria.co.uk/articles/a_17th_century_spreadsheet_of_deaths_in_london">http://www.pieria.co.uk/articles/a_17th_century_spreadsheet_of_deaths_in_london</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <h2>hojas de cálculo y celdas</h2>
+      </section>
+      <section>
+        <p>A inicios de los 1980s, las hojas de cálculo digitales empezaron a estar disponbiles en los computadores Apple.</p>
+        <figure>
+          <img src="../assets/visicalc.png" width="300px">
+          <figcaption>
+            "l-r Dan Bricklin y Bob Frankston aprox. 1980." Fuente: <a href="http://dssresources.com/history/sshistory.html">http://dssresources.com/history/sshistory.html</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <p>en las hojas de cálculos digitales, cada celda posee su propia dirección. el sistema de direccionado nos permite hacer cosas como rápidamente aplicar una ecuación matemática a una fila o columna completa. podemos fácilmente usar las relaciones entre celdas para realizar cálculos que resultan en información nueva.</p>
+        <p><marquee>🎉🎉🎉¡esto es grandioso!🎉🎉🎉</marquee></p>
+      </section>
+      <section>
+        <h2>ejercicio: construye un conjunto simple de datos</h2>
+      </section>
+      <section>
+        <ol>
+          <li>piensa en alguna información en el formato "índice" seguido de "ítem". aquí hay un ejemplo:
+            <figure>
+              <table class="no-border">
+                <tr>
+                  <td>Domingo —</td>
+                  <td>3 millas</td>
+                </tr>
+                <tr>
+                  <td>Lunes —</td>
+                  <td>2 millas</td>
+                </tr>
+                <tr>
+                  <td>Martes —</td>
+                  <td>7 millas</td>
+                </tr>
+              </table>
+            </figure>o
+            <figure>
+              <table>
+                <thead>
+                  <tr>
+                    <td>Día</td>
+                    <td># Millas caminadas</td>
+                  </tr>
+                </thead>
+                <tr>
+                  <td>Domingo</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Lunes</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Martes</td>
+                  <td>7</td>
+                </tr>
+              </table>
+            </figure>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <ol start="2">
+          <li>
+            añade otro ítem, o característica, relacionado con tu índice.
+            <figure>
+              <table>
+                <thead>
+                  <tr>
+                    <td>Día</td>
+                    <td># Millas caminadas</td>
+                    <td># Palabras tweeteadas por Trump</td>
+                  </tr>
+                </thead>
+                <tr>
+                  <td>Domingo</td>
+                  <td>3</td>
+                  <td>27</td>
+                </tr>
+                <tr>
+                  <td>Lunes</td>
+                  <td>2</td>
+                  <td>32</td>
+                </tr>
+                <tr>
+                  <td>Martes</td>
+                  <td>7</td>
+                  <td>200</td>
+                </tr>
+              </table>
+            </figure>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <ol start="3">
+          <li>piensa en algún cálculo que puedas realizar sobre tu conjunto de datos existentes para crear más información. ¿puedes añadir un índice de nombre "total" donde sumas algunos de tus items? ¿puedes dividir algunos de los valores en las columnas entre sí para realizar un cálculo ítem por ítem?
+            <figure>
+              <img src="../assets/words-per-mile.gif" width="600px">
+            </figure>
+          </li>
+          <li>prueba filtrando tu información por columna. o también ordenándola alfabéticamente.</li>
+        </ol>
+      </section>
+      <section>
+        <p>¡felicitaciones! construiste un conjunto de datos.</p>
+        <p>pero también accidentalmente aprendiste un aspecto fundamental sobre cómo los computadores representan, acceden a y manipulan la información; aprendiste sobre <i>estructuras de datos</i>.</p>
+      </section>
+      <section>
+        <p>en el contexto de la programación, a lo que le hemos estado llamando índices y items, recibe el nombre de "pares clave-valor" o "pares nombre/valor". es lo que hace tan poderosa a una hoja de cálculos - la forma en que puedes usar un índice para aplicar un cálculo a muchas celdas - es similar a la estructura de datos clave-valor que hace tan poderosos a los lenguajes de programación. a continuación, hablaremos sobre cómo los pares nombre/valor son representados en un formato de datos popular llamado JSON.</p>
+      </section>
+      <section>
+        <h2>formatos de almacenamiento de datos</h2>
+      </section>
+      <section>
+        <p>muchos lenguajes de programación permiten a los programadores almacenar datos en estructuras de datos similares a la que construimos en la hoja de cálculos.</p>
+        <p>un programa simple en Python puede almacenar un conjunto de pares clave-valor en una estructura de datos, a la que el programador puede acceder y realizar cálculos.</p>
+        <p>un programa simple en Javascript puede almacenar un conjunto de pares clave-valor en una estructura de datos, a la que el programador puede acceder y construir una interacción.</p>
+        <p>puedes imaginar a dónde vamos.</p>
+      </section>
+      <section>
+        <p>JSON es una forma de almacenamiento de datos fuera de un programa de computador, que posteriormente puede ser ingresada a un programa. es análogo a un archivo valores separados por coma (CSV) ya que ambos son formas de almacenamiento de datos, pero son diferentes porque JSON es una estructura de pares nombre/valor, mientras que los datos CSV no están estructurados - son solo datos separados por comas.</p> </section>
+      <section>
+        <figure>
+          <img src="../assets/JSON.png" width="600px">
+          <figcaption>
+            Fuente: <a href="http://www.json.org/">http://www.json.org/</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <p>así se ve una sección de un archivo JSON:</p>
+        <figure>
+          <img src="../assets/dronestream-json.png" width="600px">
+          <figcaption>
+            Fuente: <a href="http://api.dronestre.am/data">http://api.dronestre.am/data</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <p>este es un conjunto de datos de ataques drone encubiertos por el gobierno de estados unidos, extraídos del proyecto dronestream de josh begley, del que hablaremos pronto.</p>
+      </section>
+      <section>
+        <p>si revisas, puedes observar pares clave-valor similares a los que hicimos anteriormente y según la especificación JSON: cada nombre está seguido de dos puntos, los pares clave-valor están separados por una coma, y cada conjunto de pares clave-valor está contenido entre llaves { }.</p>
+        <figure>
+          <img src="../assets/dronestream-json-detail.png" width="600px">
+          <figcaption>
+            Fuente: <a href="http://api.dronestre.am/data">http://api.dronestre.am/data</a>
+          </figcaption>
+        </figure>
+        <p></p>
+      </section>
+      <section>
+        <p>si tienes un archivo csv y lo quieres convertir a json: <a href="http://www.csvjson.com/csv2json">http://www.csvjson.com/csv2json</a></p>
+        <p>si tienes un archivo JSON y lo quieres convertir a CSV para transformarlo en una hoja de cálculos: <a href="https://konklone.io/json/">https://konklone.io/json/</a></p>
+      </section>
+      <section>
+        <h2>proyectos basados en hojas de cálculo</h2>
+      </section>
+      <section>
+        <p>ahora que tienes una noción de cómo los datos pueden ser estructurados y usados por programas, revisemos algunos proyectos que se basan en el uso de hojas de cálculo y datos JSON:</p>
+      </section>
+      <section>
+        <figure>
+          <img src="../assets/db-homeless.gif" width="600px">
+          <figcaption>
+            <a href="https://docs.google.com/spreadsheets/d/1Obseltf_Ef0peTYXzzVkZPAgs8pcE34277QnsGAfkaM/pubhtml">Hoja de cálculo pública</a> / Fuente: <a href="https://kaganjd.github.io/databasing-the-homeless/">https://kaganjd.github.io/databasing-the-homeless/</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <figure>
+          <img border="1px" src="../assets/nea-funded.gif" width="600px">
+          <figcaption>
+            <a href="https://spreadsheets.google.com/feeds/list/1-tM404sCGoyRQYeUCge1qFpfRLt92lfuyYAA0ESN2O8/od6/public/values?alt=json">datos JSON </a> / Fuente: <a href="https://www.neafunded.us">https://www.neafunded.us</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <figure>
+          <img border="1px" src="../assets/dronestream.png" width="600px">
+          <figcaption>
+            <a href="http://api.dronestre.am/data">datos JSON</a> / fuente: <a href="https://twitter.com/dronestream">https://twitter.com/dronestream</a>
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <h2>ejercicio: idea un conjunto de datos y/o bosqueja una interfaz</h2>
+      </section>
+      <section>
+        <p>ahora sabes cómo funcionan estos proyectos. ¿cómo harías el tuyo? ¿qué harías con él? como mimi onuoha ha estado<a href="https://github.com/MimiOnuoha/missing-datasets">explicando</a> por años, muchos conjuntos de datos todavía no han sido creados.</p>
+        <figure>
+          <img src="../assets/mimi.png" width="600px">
+          <figcaption>
+            Fuente: <a href="https://twitter.com/thistimeitsmimi">https://twitter.com/thistimeitsmimi</a>
+          </figcaption>
+        </figure>
+        <p></p>
+      </section>
+      <section>
+        <p>
+          muchos conjuntos de datos sí existen, pero no poseen una interfaz sobre ellos que los haga accesibles a grandes audiencias. muchos conjuntos de datos que existen quizás no deberían existir. para cerrar, por unos minutos discute uno de los siguientes temas con la persona a tu lado:</p>
+        <ul>
+          <li>idea una interfaz para datos que ya poseas.</li>
+          <li>idea un conjunto de datos imposible de recolectar.</li>
+          <li>idea la peor forma de construir un conjunto de datos.</li>
+          <li>o la mejor forma de construir un conjunto de datos.</li>
+        </ul>
+        <p></p>
+      </section>
+    </div>
+  </div>
+  <script src="../../reveal.js/lib/js/head.min.js">
+  </script>
+  <script src="../../reveal.js/js/reveal.js">
+  </script>
+  <script>
+       // More info https://github.com/hakimel/reveal.js#configuration
+       Reveal.initialize({
+         history: true,
+         pdfMaxPagesPerSlide: 1
+       });
+  </script>
+</body>
+</html>
