@@ -4,10 +4,13 @@
   background-size: cover;
 }
 
-.container {
+.wrapper {
+  margin: auto;
   max-width: 690px;
   display: flex;
-  flex-direction: column;
+  flex-flow: center;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 3%;
 }
 
