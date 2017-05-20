@@ -1,0 +1,210 @@
+<section class="index flex-container">
+  <h2>workshop contents</h2>
+  <ul>
+    <li><a class="active" href="#goals">goals</a></li>
+    <li><a href="#first">requests and responses</a></li>
+    <li><a href="#second">the propublica congress API</a></li>
+    <li><a href="#third">the dronestream API</a></li>
+    <li><a href="#fourth">corporate APIs</a></li>
+    <li><a href="#fifth">problems with discretionary API access</a></li>
+    <li><a href="#sixth">next steps: technical tutorials</a></li>
+  </ul>
+  <div id="slides">
+    <input class="btn" onclick="window.open('slides/index.html', '_blank')" type="button" value="view as slides"/>
+    <input class="btn" onclick="window.open('slides/index.html?print-pdf', '_blank')" type="button" value="print to pdf"/>
+  </div>
+</section>
+<section>
+    <h1>the politics of web APIs</h1>
+  </section>
+<section>
+      <p><strong>#goals: </strong>participants will leave with an understanding of what a web API does, what APIs can be used for, and some problems that arise from the power asymmetry inherent in an API. first, we'll cover key components of web APIs and review two public interest journalism APIs. we'll use some of the concepts we learn to have a conversation about corporate APIs and discretionary API access. participants will not leave knowing how to build an API, although there are links to technical resources at the end.</p>
+      <p><strong>duration: </strong>1.5 hours</p>
+      <p><strong>prerequisites: </strong>"data: spreadsheets to JSON workshop" or an understanding of what JSON is</p>
+      <p><strong>materials needed: </strong>none</p>
+  </section>
+<section>
+    <h2>requests and responses (or, how computers talk to each other)</h2>
+  </section>
+<section>
+  <p>people create web APIs in order to make some or all of their data accessible to others. in order to talk about web APIs, we need to make sure we all have an understanding of how information travels on the web. here's a very simplified version of how a website gets to your phone or computer:
+  </p><ul>
+    <li>first, the client (your phone or computer) makes a request to a server (a computer somewhere else that has the website you want).</li>
+    <li>then, the server serves a response back.</li>
+  </ul>
+  <p></p>
+  <p>to summarize, clients make requests; servers serve responses.</p>
+  </section>
+<section>
+    <p>responses and requests both include addresses so they know where to go. when you type an address into a browser search bar, you’re typing the address of the file you want on the server where it's stored.</p>
+  </section>
+<section>
+    <p>the response the server sends back can be a website, an image, a video. in this workshop we’ll be talking about responses that are JSON data.</p>
+    <p id="apis">APIs use different addresses to serve different parts of a data set.</p>
+  </section>
+<section>
+    <h2>a close reading: the propublica congress API</h2>
+  </section>
+<section>
+    <p>let's take a close look at an API. the <a href="https://propublica.github.io/congress-api-docs/#congress-api-documentation">propublica congress API</a> is well-documented and not evil, so we’ll use it to build as much knowledge as we can, from scratch, about APIs.</p>
+  </section>
+<section>
+    <h3>what does the documentation say?</h3>
+    <p>information about what an API does is referred to as its <strong>documentation</strong>. it’s the best place to get your bearings when you’re exploring a new API. this one says:
+    </p><blockquote>"Using the Congress API, you can retrieve legislative data from the House of Representatives, the Senate and the Library of Congress. The API, which originated at The New York Times in 2009, includes details about members, votes, bills, nominations and other aspects of congressional activity. This document describes the requests that users can make of the API and the responses that it returns."</blockquote>
+    <p></p>
+  </section>
+<section>
+    <p>from the description, we learn some things about APIs in general:
+    </p><ul>
+      <li>they let you retrieve data</li>
+      <li>they come with a document that describes requests and responses</li>
+    </ul>
+    <p></p>
+  </section>
+<section>
+    <p>with this API in particular, we'd make requests to get information about:
+    </p><ul>
+      <li>members of congress</li>
+      <li>votes</li>
+      <li>bills</li>
+      <li>nominations</li>
+    </ul>
+    <p></p>
+  </section>
+<section>
+    <h3>building a query, making a request</h3>
+    <p>the propublica congress API provides access to many data sets. we'll focus on the <strong>members</strong> API to keep things simple. the members API has information about how to build the address to access the data we need.</p>
+    <p><img src="assets/members.png" width="600px"/></p>
+  </section>
+<section>
+    <p>URI stands for "universal resource identifier" and it's another name for the data set's address on propublica's server.</p>
+    <p><img src="assets/req.png" width="600px"/></p>
+    <p>looks like a regular web address, right? the only differences are:
+    </p><ol>
+    <li>the propublica API requires a key, so you won't be able to access the data by just typing the address above into a regular browser; you'll get a message saying "forbidden". we'll talk more about keys later, but for now just think of it as a password.</li>
+    <li>those curly brackets, which tell you that there can be multiple possible values there. you have to decide which values you want to put in; putting in different values will return different data. this is what i meant when i said above, <a href="#apis">“APIs use different addresses to serve different parts of a data set.”</a></li>
+    </ol>
+    <p></p>
+  </section>
+<section>
+    <p>for example, these three links will return different data sets because they’re (slightly) different addresses:
+    </p><ul>
+      <li><code>https://api.propublica.org/congress/v1/115/senate/members.json</code></li>
+      <li><code>https://api.propublica.org/congress/v1/114/senate/members.json</code></li>
+      <li><code>https://api.propublica.org/congress/v1/114/house/members.json</code></li>
+    </ul>
+    <p></p>
+  </section>
+<section>
+    <p>see the differences? the places where you have to decide the values are called <strong>parameters</strong>. programmers plug the query parameters into the address to get the response (or, data set) they need.</p>
+    <p><img src="assets/query.png" width="400px"/></p>
+  </section>
+<section>
+    <p>once you build your request address and enter it in the command line, 
+    </p><p><img src="assets/propub-cl.png" width="600px"/></p>
+    <p>the response looks like this:</p>
+    <p><img src="assets/propub-json.png" width="600px"/></p>
+  </section>
+<section>
+    <h2>a close reading: the dronestream API</h2>
+  </section>
+<section>
+    <p>let's look at another API: a covert drone strike API created by data artist josh begley.</p>
+    <p>
+      <img src="assets/dronestream.png" width="600px"/>
+    </p>
+  </section>
+<section>
+    <h3>what does the documentation say?</h3>
+    <p>there is no documentation! sometimes, this happens with very simple APIs.</p>
+    <h3>making a request</h3>
+    <p>unlike the propublica congress API which has lots of different endpoints (addresses), the dronestream API just has one endpoint. this means you don’t have to deal with any parameters to build the address to get the data set you want; there's only one data set. the dronestream API also doesn’t require a key, so anyone can access it straight from the browser. give it a try:</p>
+    <p><a href="http://api.dronestre.am/data" target="_blank">http://api.dronestre.am/data</a></p>
+  </section>
+<section>
+    <p>this endpoint returns raw JSON data, just like the propublica congress API. begley created this data set by going through articles from the bureau of investigative journalism and making a JSON object for each covert drone strike launched by the u.s. before begley made the dronestream API, this data set existed in articles, but not in a format that could be accessed and used in an application or data visualization.</p>
+  </section>
+<section>
+    <h2>corporate APIs</h2>
+  </section>
+<section>
+    <p>we've looked at two examples of APIs that journalists and activists might make and use. but many corporations also release APIs. google, facebook, amazon, uber, twitter—they may not all be profitable, but they all have APIs. why?</p>
+  </section>
+<section>
+    <p>to encourage outside software developers to create new products and services from data these companies collect. each company decides what to make accessible to developers via its APIs, and companies can remove features or revoke access at any time, ending the viability of products and services built on those deprecated or inaccessible APIs.</p>
+  </section>
+<section>
+    <h2>discretionary API access</h2>
+  </section>
+<section>
+    <p>companies have complete control over the data they collect and release in the form of an API. this power asymmetry can present a problem for developers.</p>
+    <p>as a case study, let's look at the uber API. here's how the company talks about its API in the API mission:</p>
+    <img border="1px" src="assets/uber-mission.png" width="600px"/>
+    <figcaption>Source: <a href="https://developer.uber.com/docs/trip-experiences/terms-of-use">Uber Developers, "Terms of Use"</a>
+      </figcaption>
+  </section>
+<section>
+    <p>examples of prohibited uses of the uber API include aggregating uber with competitors and storing uber's data, except as expressly permitted by uber:</p>
+    <img border="1px" src="assets/uber-nope.png" width="600px"/>
+    <figcaption>Source: <a href="https://developer.uber.com/docs/trip-experiences/terms-of-use">Uber Developers, "Terms of Use"</a>
+      </figcaption>
+  </section>
+<section>
+    <h3>the urbanhail story</h3>
+  </section>
+<section>
+    <p>urbanhail was an app that aggregated the prices of rideshare options so users could choose the cheapest one. to do this, it relied on APIs, including uber’s.</p>
+    <p>uber revoked urbanhail’s API access. urbanhail’s now-defunct website informed visitors that 
+      </p><blockquote>"Uber terminated urbanhail's API access of May 31st [2016]. We had previously been using this API access to display Uber ride options on our app's results page."</blockquote>
+    <p></p>
+  </section>
+<section>
+    <p>a few months after urbanhail folded, <a href="http://www.businessinsider.com/google-ride-sharing-price-comparison-tool-2016-9">uber pricing was integrated into google maps, along with lyft and other ride-hailing platforms</a>. uber permits price comparisons within google maps, but not for other companies.</p>
+  </section>
+<section>
+    <h3>discussion questions💡</h3>
+    <p>
+      </p><ol>
+      <li>if you're uber, can you imagine why you would have these kinds of restrictions?</li>
+      <li>why would a company prohibit storing or aggregating its data?</li>
+      <li>can you imagine a situation when an API's terms of use would get in the way of certain kinds of applications getting built?</li>
+      </ol>
+    <p></p>
+  </section>
+<section>
+    <h3>speculate 💖</h3>
+    <ol>
+      <li>are wage theft apps or strike apps possible with discretionary API access? why or why not?</li>
+      <li>what would it take to connect isolated gig economy workers with each other without API access?</li>
+    </ol>
+  </section>
+<section>
+    <h2>next steps: technical tutorials</h2>
+  </section>
+<section>
+    <p>now that we've read some examples of API documentation, have a sense of APIs do, who makes them, why we should care about who has access to them, and what data they're made from, it's only appropriate to share the official and mostly useless definition of what an API is:</p>
+    <img src="assets/api-def.png" width="600px"/>
+  </section>
+<section>
+    <p>the u.s. government uses this metaphor, among others, to describe them:
+    </p><blockquote>
+      "APIs are like the engine of a car. You don’t have to know how it works but rather just turn the key in the ignition and it handles everything underneath."<cite>—<a href="https://pages.18f.gov/API-All-the-X/pages/what_are_APIs-anecdotes_and_metaphors/">API Resources for Federal Agencies</a></cite>
+    </blockquote>
+    <p></p>
+  </section>
+<section>
+    <p>web APIs are difficult to talk about, but important to understand since they're such a fundamental part of the web applications we use every day. you can (and should!) also make your own, with data you think could be used in applications or data visualizations. these are two of the best technical API tutorials i know of—one in python, one in javascript:</p>
+    <ul>
+      <li>"<a href="http://rwet.decontextualize.com/book/web-applications/">web applications</a>" in python, by allison parrish</li>
+      <li>"<a href="shiffman.net/a2z/server-node">server-side programming and node</a>" by daniel shiffman</li>
+    </ul>
+  </section>
+<section>
+    <p>many platforms that offer APIs also have useful tutorials and documentation:</p>
+    <ul>
+      <li><a href="https://www.etsy.com/developers/documentation/getting_started/api_basics">etsy</a></li>
+      <li><a href="https://developers.google.com/maps/documentation/javascript/earthquakes">google maps</a></li>
+      <li><a href="https://developer.github.com/guides/getting-started/">github</a></li>
+    </ul>
+  </section>
