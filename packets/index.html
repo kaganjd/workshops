@@ -17,10 +17,10 @@
     <h2>workshop contents</h2>
     <ul>
       <li>
-        <a class="active" href="#goals">goals</a>
+        <a class="active" href="#goals">#goals</a>
       </li>
       <li>
-        <a href="#first">how do <i>you</i> think the internet works?</a>
+        <a href="#first">lens</a>
       </li>
       <li>
         <a href="#second">exercise: build the internet</a>
@@ -31,39 +31,37 @@
       <li>
         <a href="#fourth">the tiny picture</a>
       </li>
+      <li>
+        <a href="#fifth">keep learning</a>
+      </li>
     </ul>
-    <div id="slides">
+<!--     <div id="slides">
       <input class="btn" onclick="window.open('slides/index.html', '_blank')" type="button" value="view as slides"> <input class="btn" onclick="window.open('slides/index.html?print-pdf', '_blank')" type="button" value="print to pdf">
-    </div>
+    </div> -->
   </section>
   <div class="container content" id="goals">
     <section>
       <h1>the internet is made of data packets</h1>
     </section>
     <section>
-      <p><strong>#goals:</strong> we'll talk as a group about how we think the internet works, where we got those ideas, and some ways of framing conversations about how the web works. then, we’ll use an application called herbivore to explore how our devices get websites from out of the internet into our eyeballs.</p>
+      <p><strong>#goals:</strong> get familiar with some of the core parts of internet infrastructure like routers, servers and ISPs; know what a data packet is and how websites get to computers; have enough of an understanding of packet sniffing to be able to explore independently.</p>
       <p><strong>duration:</strong> 1.5 hours</p>
-      <p><strong>prerequisites:</strong> herbivore on your computer before beginning the workshop. herbivore is a free, open-source application available for download <a href="https://github.com/samatt/herbivore/releases/tag/v1.0">here.</a></p>
-      <p><strong>materials needed:</strong> wi-fi; one laptop per two people; optional: tactical tech's <a href="https://myshadow.org/ckeditor_assets/attachments/146/howtheinternetworks_cardset.pdf">deck</a> of internet infrastructure cards.</p>
+      <p><strong>prerequisites:</strong> none</p>
+      <p><strong>materials needed:</strong> internet access; at least one computer; tactical tech's <a href="https://myshadow.org/ckeditor_assets/attachments/146/howtheinternetworks_cardset.pdf">deck</a> of internet infrastructure cards; a packet sniffing application (download <a href="https://www.wireshark.org/download.html">wireshark</a> or <a href="https://github.com/samatt/herbivore/releases/tag/v1.1">herbivore</a>).</p>
     </section>
   </div>
   <div class="container content" id="first">
     <section>
-      <h2>how do <i>you</i> think the internet works?</h2>
+      <h2>lens</h2>
     </section>
     <section>
-      <p>there are many ways to talk about how the internet works:</p>
-      <h3>it’s physical</h3>
-      <p>there are server farms, <a href="http://www.petergarritano.com/the-internet.html">carrier hotels</a>, specially marked manhole covers on the street, and lots and lots of cable.</p>
-      <h3>it tracks you</h3>
-      <p>there are advertisers who want your data so they can categorize you a thousand different ways, and there are tools for evading the advertisers.</p>
-      <h3>different things happen at different scales</h3>
-      <p>there’s a big picture (infrastructure, international governance bodies) and a tiny picture (bytes traveling along wires)</p>
+      <p>activists and organizers use the internet all the time—to post pictures, to collect information from folks who come to meetings, to plan actions. but many of us don't know how the internet actually works or who holds power to control the flow of data across the network.</p>
+      <p>packet sniffing is a small way to take a peek under the hood at the very big system that is the internet.</p>
     </section>
   </div>
   <div class="container content" id="second">
     <section>
-      <h2>exercise: lay out the internet</h2>
+      <h2>exercise: build the internet</h2>
     </section>
     <section>
       <ol>
@@ -73,13 +71,22 @@
         <li>come back together and let's discuss: how did this feel? did you know more or less than you thought?</li>
       </ol>
     </section>
+    <section>
+      <ul>
+        <li>website</li> 
+        <li>router</li>
+        <li>server</li>
+        <li>server farm</li>
+        <li>internet service provider</li>
+      </ul>
+    </section>
   </div>
   <div class="container content" id="third">
     <section>
-      <h2>the big picture</h2>
+      <h2>filling out the big picture</h2>
     </section>
     <section>
-      <p>one of the mind-blowing, big picture things about the internet: the submarine cable map.</p>
+      <h3>the submarine cable map</h3>
       <figure>
         <img src="assets/sub-cable-map.png" width="600px">
         <figcaption>
@@ -92,16 +99,54 @@
         “Most people probably don’t know that 99 percent of all transoceanic data traffic goes through undersea cables, and that includes Internet usage, phone calls and text messages.” <cite>—NYU professor Nicole Starosielski in <a href="http://www.newsweek.com/undersea-cables-transport-99-percent-international-communications-319072">Newsweek</a>, 2015</cite>
       </blockquote>
     </section>
+    <section>
+      <h3>peter garritano's photos of carrier hotels in lower manhattan</h3>
+      <figure>
+        <img src="assets/garritano1.jpg" width="600px">
+        <figcaption>
+          Source: <a href="http://www.submarinecablemap.com/">http://www.petergarritano.com/the-internet.html</a>
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <h3>ingrid burrington's internet infrastructure field guide</h3>
+      <figure>
+        <img src="assets/l3.png" width="600px">
+        <figcaption>
+          Source: <a href="http://seeingnetworks.in/nyc/">http://seeingnetworks.in/nyc/</a>
+        </figcaption>
+      </figure>
+    </section>
   </div>
   <div class="container content" id="fourth">
     <section>
       <h2>the tiny picture</h2>
     </section>
     <section>
-      <p>for the sake of working with what we’ve got—our computers, some free tools—we’re going to mostly stick with the tiny picture (bytes traveling along wires).</p>
-      <p>you should have herbivore installed on your computer. open it up!</p>
-    </section><marquee></marquee>
-    <p><marquee>😱😱😱 what is all this stuff? 😱😱😱</marquee></p>
+      <h3>requests and responses</h3>
+    </section>
+    <section>
+      <h3>packet structure and headers</h3>
+      <ul>
+        <li>MAC address</li>
+        <li>tcp packet headers</li>
+        <li>http packet headers</li>
+      </ul>
+    </section>
+    <section>
+      <figure>
+        <img src="assets/tcpjoke.png" width="600px">
+        <figcaption>
+          Source: <a href="https://twitter.com/casheeew/status/481438450848395264">https://twitter.com/casheeew/status/481438450848395264</a>
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <h3>sniffing packets</h3>
+    </section>
+    <section>
+      <p>open up herbivore!</p>
+      <p><marquee>😱😱😱 what is all this stuff? 😱😱😱</marquee></p>
     <section>
       <figure>
         <img src="assets/network.png" width="600px">
@@ -121,14 +166,6 @@
       <p>it's easy to find the <span class="tooltip">MAC address<span class="tooltiptext">MAC addresses are "media access control" addresses, unique identifiers assigned by manufacturers of networking devices and etched right onto the device itself. the MAC address follows a strict naming format which is set by the IEEE, so that networked devices can communicate with each other.</span></span> of your device (there's an arrow pointing to it).</p>
     </section>
     <section>
-      <p>the most important thing to remember about all these identifiers is that they're addresses, ways of getting information from one device to another. think about it: if you need to give something to someone you've never met before, you need some uniquely identifying information about that person. the paper that defines how this all works actually describes it this way:</p>
-    </section>
-    <section>
-      <blockquote>
-        “A distinction is made between names, addresses, and routes... A name indicates what we seek. An address indicates where it is. A route indicates how to get there. The internet protocol deals primarily with addresses.” <cite>—<a href="https://tools.ietf.org/html/rfc791">Internet Protocol Specification</a>, 1981</cite>
-      </blockquote>
-    </section>
-    <section>
       <p>if you double-click your own device in the table, you get to the sniffer view, where you're watching your own packets come and go.</p>
       <figure>
         <img src="assets/sniffer.png" width="600px">
@@ -136,9 +173,14 @@
       </figure>
     </section>
     <section>
-        <h2>exercise: HTTP vs. HTTPS</h2>
-        <p>let's see the difference between HTTP and HTTPS.</p>
-        <p>first, click the HTTP button below. this will take you to a form that submits data via HTTP.</p>
+      <blockquote>
+        “A distinction is made between names, addresses, and routes... A name indicates what we seek. An address indicates where it is. A route indicates how to get there. The internet protocol deals primarily with addresses.” <cite>—<a href="https://tools.ietf.org/html/rfc791">Internet Protocol Specification</a>, 1981</cite>
+      </blockquote>
+    </section>
+    <section>
+        <h3>exercise: HTTP vs. HTTPS</h3>
+        <p>let's use packet sniffing to see the difference between HTTP and HTTPS. the window below shows a common scenario on the web: a website asks you to submit some information into a form.</p>
+        <p>first, click the HTTP button below. this will take you to a form that submits data via HTTP. the form data you submit via HTTP will be visible in the packet sniffer.</p>
         <p>then, click the HTTPS button below. this will take you to a form that submits data securely, via HTTPS.</p>
         <div class="encryption-exercise">
           <input class="btn" type="button" onclick="load('http/index.html')" value="HTTP"/>
@@ -146,6 +188,18 @@
           <iframe id="encryption-exercise-frame" width="600px" height="500px"></iframe>
         </div>
     </section>
+  </div>
+  <div class="container content" id="fifth"> 
+    <section>
+      <h2>keep learning</h2>
+    </section>
+    <section>
+      <p>you can find a running list of links about digital/media justice, digital security tools, wireshark demos, packet sniffing journalism, and more <a href="https://github.com/kaganjd/workshops/wiki/%22The-Internet-Is-Made-of-Data-Packets%22-Additional-Resources">here</a>.</p>
+    </section>
+  </div>
+  <div class="container content">
+    <h3>thanks</h3>
+    <p>surya mattu, tom igoe, and ingrid burrington for teaching me most of what i know about the internet.</p>
   </div>
   <footer class="footer">
     <div>
