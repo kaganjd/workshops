@@ -62,17 +62,6 @@
   text-align: left;
 }
 
-.workshop-descr span.show {
-  visibility: hidden;
-}
-.workshop-descr:hover span.show {
-  visibility: visible;
-}
-
-.workshop-descr:hover span.hide {
-  display: none;
-}
-
 .workshop-descr:hover {
   color: rgb(255, 255, 255);
   background-color: rgba(98, 0, 234, .9);
