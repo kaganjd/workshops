@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-  <link href="../style.css" rel="stylesheet">
+  <link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="../css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:300,400|VT323" rel="stylesheet">
   <title>packets</title>
   <style type="text/css">
@@ -15,43 +15,12 @@
 <body>
   <section class="index flex-container">
     <h2>workshop contents</h2>
-    <ul>
-      <li>
-        <a class="active" href="#goals">#goals</a>
-      </li>
-      <li>
-        <a href="#first">lens</a>
-      </li>
-      <li>
-        <a href="#second">exercise: build the internet</a>
-      </li>
-      <li>
-        <a href="#third">the big picture</a>
-      </li>
-      <li>
-        <a href="#fourth">the tiny picture</a>
-      </li>
-      <li>
-        <a href="#fifth">keep learning</a>
-      </li>
-      <li>
-        <a href="#sixth">thanks</a>
-      </li>
-    </ul><!--     <div id="slides">
+    <div id="toc"></div>
+<!--     <div id="slides">
       <input class="btn" onclick="window.open('slides/index.html', '_blank')" type="button" value="view as slides"> <input class="btn" onclick="window.open('slides/index.html?print-pdf', '_blank')" type="button" value="print to pdf">
     </div> -->
   </section>
-  <div class="container content" id="goals">
-    <section>
-      <h1>the internet is made of data packets</h1>
-    </section>
-    <section>
-      <p><strong>#goals:</strong> get familiar with some of the core parts of internet infrastructure like routers, servers and ISPs; know what a data packet is and how websites get to computers; have enough of an understanding of packet sniffing to be able to explore independently.</p>
-      <p><strong>duration:</strong> 1.5 hours</p>
-      <p><strong>prerequisites:</strong> none</p>
-      <p><strong>materials needed:</strong> internet access; at least one computer; tactical tech's <a href="https://myshadow.org/ckeditor_assets/attachments/146/howtheinternetworks_cardset.pdf">deck</a> of internet infrastructure cards; a packet sniffing application (download <a href="https://www.wireshark.org/download.html">wireshark</a> or <a href="https://github.com/samatt/herbivore/releases/tag/v1.1">herbivore</a>).</p>
-    </section>
-  </div>
+  <div class="container content" id="goals"></div>
   <div class="container content" id="first">
     <section>
       <h2>lens</h2>
@@ -183,15 +152,6 @@
         “A distinction is made between names, addresses, and routes... A name indicates what we seek. An address indicates where it is. A route indicates how to get there. The internet protocol deals primarily with addresses.” <cite>—<a href="https://tools.ietf.org/html/rfc791">Internet Protocol Specification</a>, 1981</cite>
       </blockquote>
     </section>
-<!--     <section>
-      <h3>exercise: HTTP vs. HTTPS</h3>
-      <p>let's use packet sniffing to see the difference between HTTP and HTTPS. the window below shows a common scenario on the web: a website asks you to submit some information into a form.</p>
-      <p>first, click the HTTP button below. this will take you to a form that submits data via HTTP. the form data you submit via HTTP will be visible in the packet sniffer.</p>
-      <p>then, click the HTTPS button below. this will take you to a form that submits data securely, via HTTPS.</p>
-      <div class="encryption-exercise">
-        <input class="btn" onclick="load('http/index.html')" type="button" value="HTTP"> <input class="btn" onclick="load('https/index.html')" type="button" value="HTTPS"> <iframe height="500px" id="encryption-exercise-frame" name="encryption-exercise-frame" width="600px"></iframe>
-      </div>
-    </section> -->
   </div>
   <div class="container content" id="fifth">
     <section>
@@ -203,7 +163,7 @@
   </div>
   <div class="container content" id="sixth">
     <section>
-    <h3>thanks</h3>
+    <h2>thanks</h2>
     <p>surya mattu, tom igoe, and ingrid burrington for teaching me most of what i know about the internet.</p>
     </section>
   </div>
@@ -215,13 +175,9 @@
       2017
     </div>
   </footer>
-  <script type="text/javascript">
-        function load(page) {
-          document.getElementById("encryption-exercise-frame").src = page;
-        }
-  </script> 
-  <script src="../scroll.js" type="text/javascript">
-  </script> 
+  <script src="../js/scroll.js" type="text/javascript"></script> 
+  <script src="../js/template.js" type="text/javascript"></script>
+  <script src="config.js" type="text/javascript"></script>
   <script>
       // google analytics
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
