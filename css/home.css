@@ -1,6 +1,6 @@
 .bg-image {
   width: 100%;
-  background-image:url(assets/machine2-wide.jpg);
+  background-image:url(../assets/machine2-wide.jpg);
   background-size: cover;
 }
 

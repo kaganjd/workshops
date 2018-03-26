@@ -9,7 +9,7 @@
   var containers = {};
   var i = 0;
 
-  container.forEach(function(element) {
+  container.forEach((element) => {
     containers[element.id] = element.offsetTop;
   })
 
