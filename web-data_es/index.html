@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="../style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:300,400|VT323" rel="stylesheet">
+  <title>data</title>
+</head>
+<body>
+  <section class="index flex-container">
+    <h2>contenidos del taller</h2>
+    <ul>
+      <li>
+        
+        <a class="active" href="#goals">goals</a>
+      </li>
+      <li>
+        <a href="#first">the indexed list</a>
+      </li>
+      <li>
+        <a href="#second">spreadsheets and cells</a>
+      </li>
+      <li>
+        <a href="#third"><span class="exercise">exercise:</span> make a simple data set</a>
+      </li>
+      <li>
+        <a href="#fourth">data formats</a>
+      </li>
+      <li>
+        <a href="#fifth">spreadsheet-based projects</a>
+      </li>
+      <li>
+        <a href="#sixth"><span class="exercise">exercise:</span> imagine a data set or interface</a>
+      </li>
+    </ul>
+    <div id="slides">
+      <input class="btn" onclick="window.open('slides/index.html', '_blank')" type="button" value="view as slides"> <input class="btn" onclick="window.open('slides/index.html?print-pdf', '_blank')" type="button" value="print to pdf">
+    </div>
+  </section>
+  <div class="container content" id="goals">
+    <section>
+      <h1>making data for the web</h1>
+    </section>
+    <section>
+      <p><strong>#goals:</strong> you'll leave with a better understanding of what it's possible to make with "just" a spreadsheet. in this workshop, we'll talk about spreadsheets and a similar way of arranging information called JSON. then, we'll look at some projects that use spreadsheets and JSON. you'll make a data set of your own—or imagine collecting data for a speculative data set—and sketch an interface that could go on top of it.</p>
+      <p><strong>duration:</strong> 1.5 hours</p>
+      <p><strong>prerequisites:</strong> none</p>
+      <p><strong>materials needed:</strong> internet connection, spreadsheet program like google spreadsheets</p>
+    </section>
+  </div>
+  <div class="container content" id="first">
+    <section>
+      <h2>the indexed list</h2>
+    </section>
+    <section>
+      <p>an indexed list is a way of organizing information where each row of the list shares the same structure of "index" followed by "item", like this:</p>
+      <figure>
+        <table class="no-border">
+          <tr>
+            <td>4 —</td>
+            <td>executive order</td>
+          </tr>
+          <tr>
+            <td>7 —</td>
+            <td>districts</td>
+          </tr>
+          <tr>
+            <td>2 —</td>
+            <td>Stephen</td>
+          </tr>
+        </table>
+      </figure>
+      <p>in the example above, the "index" happens to be a number, but it doesn't always have to be.</p>
+      <p></p>
+    </section>
+    <section>
+      <p>this way of organizing information is really old. here's part of an indexed list from 1693:</p>
+      <figure>
+        <img src="assets/1693-detail.jpg" width="600px">
+        <figcaption>
+          Source: <a href="https://digitalcollections.nypl.org/items/bd926ab2-b94f-48a8-e040-e00a180644a9">https://digitalcollections.nypl.org/items/bd926ab2-b94f-48a8-e040-e00a180644a9</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <table class="no-border">
+          <tr>
+            <td>1 —</td>
+            <td>old fashion dish cupboard (?)</td>
+          </tr>
+          <tr>
+            <td>1 —</td>
+            <td>old bad boulder... (?)</td>
+          </tr>
+          <tr>
+            <td>3 —</td>
+            <td>iron pots (?)</td>
+          </tr>
+          <tr>
+            <td>1 —</td>
+            <td>for rand iron & tang (?)</td>
+          </tr>
+        </table>
+      </figure>
+      <p></p>
+    </section>
+    <section>
+      <p>we read a simple indexed list horizontally. but the indexed list also hints at another way of reading: vertically, by column.</p>
+      <p>the spreadsheet is a complex type of indexed list, where columns are explicitly named and used to connect more than one piece of information to a single index. this way of organizing information is also really old. here's a spreadsheet from 1662 that was handwritten WITH. A. QUILL.</p>
+      <figure>
+        <img src="assets/1662-quill.jpg">
+        <figcaption>
+          Source: <a href="http://www.pieria.co.uk/articles/a_17th_century_spreadsheet_of_deaths_in_london">http://www.pieria.co.uk/articles/a_17th_century_spreadsheet_of_deaths_in_london</a>
+        </figcaption>
+      </figure>
+    </section>
+  </div>
+  <div class="container content" id="second">
+    <section>
+      <h2>spreadsheets and cells</h2>
+    </section>
+    <section>
+      <p>digital spreadsheets became available on Apple computers in the early 1980s.</p>
+      <figure>
+        <img src="assets/visicalc.png" width="300px">
+        <figcaption>
+          "l-r Dan Bricklin and Bob Frankston approx. 1980." Source: <a href="http://dssresources.com/history/sshistory.html">http://dssresources.com/history/sshistory.html</a>
+        </figcaption>
+      </figure>
+      <p>with digital spreadsheets, each cell has its own address. the addressing system lets us do things like quickly applying one math equation to an entire row or column. we can easily use the relationships between cells to do calculations that result in new information.</p><marquee></marquee>
+      <p><marquee>🎉🎉🎉this is huge!🎉🎉🎉</marquee></p>
+    </section>
+  </div>
+  <div class="container content" id="third">
+    <section>
+      <h2>exercise: make a simple data set</h2>
+    </section>
+    <section>
+      <ol>
+        <li>think of some information you could put in the format of "index" followed by "item". here's an example:
+          <figure>
+            <table class="no-border">
+              <tr>
+                <td>Sunday —</td>
+                <td>3 miles</td>
+              </tr>
+              <tr>
+                <td>Monday —</td>
+                <td>2 miles</td>
+              </tr>
+              <tr>
+                <td>Tuesday —</td>
+                <td>7 miles</td>
+              </tr>
+            </table>
+          </figure>or
+          <figure>
+            <table>
+              <thead>
+                <tr>
+                  <td>Day</td>
+                  <td># Miles Walked</td>
+                </tr>
+              </thead>
+              <tr>
+                <td>Sunday</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Monday</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>7</td>
+              </tr>
+            </table>
+          </figure>
+        </li>
+        <li>add another item, or characteristic, that relates to your index.
+          <figure>
+            <table>
+              <thead>
+                <tr>
+                  <td>Day</td>
+                  <td># Miles Walked</td>
+                  <td># Words Tweeted by Trump</td>
+                </tr>
+              </thead>
+              <tr>
+                <td>Sunday</td>
+                <td>3</td>
+                <td>27</td>
+              </tr>
+              <tr>
+                <td>Monday</td>
+                <td>2</td>
+                <td>32</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>7</td>
+                <td>200</td>
+              </tr>
+            </table>
+          </figure>
+        </li>
+        <li>think of some math you could do with your existing data set to create more information. can you add an index called "total" where you add up some of your items? can you divide any of values in the columns by each other to get an item per item calculation?
+          <figure>
+            <img src="assets/words-per-mile.gif" width="600px">
+          </figure>
+        </li>
+        <li>try filtering your information by column. or sorting alphabetically.</li>
+      </ol>
+      <p>congratulations! you made a data set.</p>
+      <p>but you also accidentally learned a fundamental thing about how computers represent, access, and manipulate information; you learned about a <i>data structure</i>.</p>
+      <p>in the programming context, what we've been calling indexes and items are called "key-value pairs" or "name/value pairs". the thing that makes a spreadsheet powerful—the way you can use an index to apply one calculation to many cells—is similar to the key-value data structure that makes many programming languages powerful. next, we'll talk about how name/value pairs are represented in a popular data format called JSON.</p>
+    </section>
+  </div>
+  <div class="container content" id="fourth">
+    <section>
+      <h2>data storage formats</h2>
+    </section>
+    <section>
+      <p>many programming languages let programmers store data in data structures similar to the one we made in the spreadsheet.</p>
+      <p>a simple Python program might store a bunch of key-value pairs in a data structure, which the programmer could access and apply some calculation to.</p>
+      <p>a simple Javascript program might store a bunch of key-value pairs in a data structure, which the programmer could access and apply some interaction to.</p>
+      <p>you get the picture.</p>
+      <p>JSON is a way of storing data outside of a computer program, so that it can be fed into a program later. it's analogous to a comma-separated value (CSV) file in that it's a way to store data, but it's different because JSON data is structured as name/value pairs whereas CSV data isn't really structured at all—it's just everything between the commas.</p>
+    </section>
+    <section>
+      <figure>
+        <img src="assets/JSON.png" width="600px">
+        <figcaption>
+          Source: <a href="http://www.json.org/">http://www.json.org/</a>
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <p>here's what part of a JSON file looks like:</p>
+      <figure>
+        <img src="assets/dronestream-json.png" width="600px">
+        <figcaption>
+          Source: <a href="http://api.dronestre.am/data">http://api.dronestre.am/data</a>
+        </figcaption>
+      </figure>this is a data set of covert drone strikes by the u.s. government from josh begley's dronestream project, which we'll talk about soon. if you look, you can see key-value pairs similar to ones we made earlier and as described in the JSON specification above: each name is followed by a colon, key-value pairs are separated with a comma, and each collection of key-value pairs is wrapped in these { } curly brackets
+      <figure>
+        <img src="assets/dronestream-json-detail.png" width="600px">
+        <figcaption>
+          Source: <a href="http://api.dronestre.am/data">http://api.dronestre.am/data</a>
+        </figcaption>
+      </figure>
+      <p></p>
+    </section>
+    <section>
+      <p>if you have a csv and want to convert it to JSON, you can: <a href="http://www.csvjson.com/csv2json">http://www.csvjson.com/csv2json</a></p>
+      <p>if you have a JSON file and want to convert it to csv to import into a spreadsheet, you can: <a href="https://konklone.io/json/">https://konklone.io/json/</a></p>
+    </section>
+  </div>
+  <div class="container content" id="fifth">
+    <section>
+      <h2>spreadsheet-based projects</h2>
+    </section>
+    <section>
+      <p>now that you have a sense of how data can be structured and accessed by programs, let's look at some projects that rely on spreadsheets and JSON data:</p>
+    </section>
+    <section>
+      <figure>
+        <img src="assets/db-homeless.gif" width="600px">
+        <figcaption>
+          <a href="https://docs.google.com/spreadsheets/d/1Obseltf_Ef0peTYXzzVkZPAgs8pcE34277QnsGAfkaM/pubhtml">Public spreadsheet</a> / Source: <a href="https://kaganjd.github.io/databasing-the-homeless/">https://kaganjd.github.io/databasing-the-homeless/</a>
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <figure>
+        <img border="1px" src="assets/nea-funded.gif" width="600px">
+        <figcaption>
+          <a href="https://spreadsheets.google.com/feeds/list/1-tM404sCGoyRQYeUCge1qFpfRLt92lfuyYAA0ESN2O8/od6/public/values?alt=json">JSON data source</a> / Source: <a href="https://www.neafunded.us">https://www.neafunded.us</a>
+        </figcaption>
+      </figure>
+    </section>
+    <section>
+      <figure>
+        <img border="1px" src="assets/dronestream.png" width="600px">
+        <figcaption>
+          <a href="http://api.dronestre.am/data">JSON data source</a> / Source: <a href="https://twitter.com/dronestream">https://twitter.com/dronestream</a>
+        </figcaption>
+      </figure>
+    </section>
+  </div>
+  <div class="container content" id="sixth">
+    <section>
+      <h2>exercise: imagine a data set and/or sketch an interface</h2>
+    </section>
+    <section>
+      <p>now you know how the data sausage is made, as it were. how would you make yours? what would you do with it? as mimi onuoha has been <a href="https://github.com/MimiOnuoha/missing-datasets">explaining</a> for years, many data sets don't exist yet.</p>
+      <figure>
+        <img src="assets/mimi.png" width="600px">
+        <figcaption>
+          Source: <a href="https://twitter.com/thistimeitsmimi">https://twitter.com/thistimeitsmimi</a>
+        </figcaption>
+      </figure>
+      <p></p>
+    </section>
+    <section>
+      <p>many data sets do exist, but don't have an interface on top of them that makes them accessible to larger audiences. many data sets exist that maybe shouldn't exist. to close, take a few minutes to address one of these prompts with the person next to you:</p>
+      <ul>
+        <li>imagine an interface for data you already have.</li>
+        <li>imagine an uncollectable set of data.</li>
+        <li>imagine the worst possible way to make data.</li>
+        <li>or the best possible way to make data.</li>
+      </ul>
+      <p></p>
+    </section>
+  </div>
+  <footer class="footer">
+    <div>
+      made by jen kagan
+    </div>
+    <div>
+      2017
+    </div>
+  </footer>
+  <script src="../scroll.js" type="text/javascript">
+  </script>
+  <script>
+  // google analytics
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+   ga('create', 'UA-98183386-1', 'auto');
+   ga('send', 'pageview');
+  </script>
+</body>
+</html>
